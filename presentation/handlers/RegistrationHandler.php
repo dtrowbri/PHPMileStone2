@@ -1,7 +1,9 @@
 <?php
 
 require_once "../shared/header.php";
-require_once "../../businessService/RegistrationService.php";
+//require_once "../../businessService/RegistrationService.php";
+require_once "../../AutoLoader.php";
+
 
 $firstname = $_POST["firstNameInput"];
 $lastname = $_POST["lastNameInput"];
@@ -18,10 +20,13 @@ if($firstname == null || $lastname == null || $username == null || $password == 
 
 $service = new RegistrationService();
 
-if($service->doesUserExist($username)){
+$user = new User($firstname, $lastname, $username, $password);
+$address = new Address($street, $city, $state, $zip);
+
+if($service->doesUserExist($user)){
     include "../register/UserAlreadyExists.php";
 } else {
-    $results = $service->AddUser($firstname, $lastname, $username, $password, $street, $city, $state, $zip);
+    $results = $service->AddUser($user, $address);
     if($results == 0){
         echo "Failed to add user and address.";
     } elseif($results == 1){

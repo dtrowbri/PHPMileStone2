@@ -1,7 +1,9 @@
 <?php
 
 require_once '../shared/header.php';
-require_once '../../businessService/SecurityService.php';
+//require_once '../../businessService/SecurityService.php';
+require_once '../../AutoLoader.php';
+
 
 $username = $_POST["usernameInput"];
 $password = $_POST["passwordInput"];

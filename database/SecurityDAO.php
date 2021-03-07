@@ -1,5 +1,6 @@
 <?php
-require_once '../../database/database.php';
+//require_once '../../database/database.php';
+require_once '../../AutoLoader.php';
 
 class SecurityDAO {
     

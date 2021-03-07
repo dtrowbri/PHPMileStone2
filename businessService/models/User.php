@@ -1,5 +1,4 @@
 <?php
-namespace businessService\models;
 
 class User
 {
@@ -10,7 +9,7 @@ class User
     private $role;
     private $password;
     
-    public function __construct(?string $firstname, ?string $lastname, ?string $username, ?string $password){
+    public function __construct($firstname, $lastname, $username, $password){
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->username = $username;

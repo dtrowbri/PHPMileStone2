@@ -1,16 +1,17 @@
 <?php
 
-require_once "../../database/database.php";
+//require_once "../../database/database.php";
+require_once '../../AutoLoader.php';
 
 class RegistrationDAO {
     
-    public function doesUserExist(?string $username){
+    public function doesUserExist(?User $user){
         $database = new database();
         $conn = $database->getConnection();
         
         $userCheckQuery = "select id from users where username like ?";
         $stmt = $conn->prepare($userCheckQuery);
-        $stmt->bind_param('s', $username);
+        $stmt->bind_param('s', $user->getUsername());
         
         $stmt->execute();
         
@@ -24,14 +25,14 @@ class RegistrationDAO {
     }
     
     
-    public function AddUser(?string $firstname, ?string $lastname, ?string $username, ?string $password, ?string $street, ?string $city, ?string $state, ?string $zip){
+    public function AddUser(?User $user, ?Address $address){
         $database = new database();
         $conn = $database->getConnection();
         
         $insertUserQuery = "INSERT INTO `users`(`ID`, `ROLE`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `PASSWORD`) VALUES (null,1,?,?,?,?)";
         
         $stmt = $conn->prepare($insertUserQuery);
-        $stmt->bind_param('ssss', $firstname, $lastname, $username, $password);
+        $stmt->bind_param('ssss', $user->getFirstname(), $user->getLastname(), $user->getUsername(), $user->getPassword());
         
         $stmt->execute();
         
@@ -40,7 +41,7 @@ class RegistrationDAO {
             
             $insertAddress = "INSERT INTO `addresses`(`ID`, `ADDRESSTYPE`, `ISDEFAULT`, `USERS_ID`, `STREET`, `CITY`, `STATE`, `POSTALCODE`) VALUES (null,1,1,?,?,?,?,?)";
             $stmt = $conn->prepare($insertAddress);
-            $stmt->bind_param('issss', $id, $street, $city, $state, $zip);
+            $stmt->bind_param('issss', $id, $address->getStreet(), $address->getCity(), $address->getState(), $address->getZip());
             $stmt->execute();
             
             if($stmt->affected_rows > 0){
