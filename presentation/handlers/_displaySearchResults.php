@@ -37,6 +37,7 @@
 			<th>ProductName</th>
 			<th>Description</th>
 			<th>Price</th>
+			<th>View Details</th>
 		</tr>
 	</thead>
 <tbody>
@@ -46,6 +47,14 @@ for($i = 0; $i < count($results); $i++){
     echo "<td>" . $results[$i]->getName() . "</td>";
     echo "<td>" . $results[$i]->getDescription() . "</td>";
     echo "<td>" . $results[$i]->getPrice() . "</td>";
+    echo '<td><form action="ProductDetailHandler.php" method="post">';
+    echo '<input type="hidden" name="productId" value = "' . $results[$i]->getId() . '">';
+    echo '<input type="hidden" name="productName" value = "' . $results[$i]->getName() . '">';
+    echo '<input type="hidden" name="productDescription" value = "' . $results[$i]->getDescription() . '">';
+    echo '<input type="hidden" name="productPrice" value = "' . $results[$i]->getPrice() . '">';
+    echo '<input type="hidden" name="productImage" value = "' . $results[$i]->getImage() . '">';
+    echo '<input type="submit" value="View" style="widht:250px;height:50px;">';
+    echo '</form></td>';
     echo "</tr>";
 }
 

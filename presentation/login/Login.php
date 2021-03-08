@@ -2,8 +2,10 @@
 <head>
 </head>
 <body>
-	<a href="../register/Registration.html">Register</a>
-	<a href="../handlers/ProductSearchHandler.php">Products</a>
+<?php
+require_once '../shared/header.php';
+?>
+
 	<form action="../handlers/LoginHandler.php" method="post">
 		<label>Username:</label>
 		<input type="text" name="usernameInput">
