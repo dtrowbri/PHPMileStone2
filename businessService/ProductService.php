@@ -1,6 +1,6 @@
 <?php
 
-require_once "AutoLoader.php";
+require_once "../../AutoLoader.php";
 
 class ProductService{
     
@@ -9,7 +9,12 @@ class ProductService{
         $results = $dao->getAllProducts();
         return $results;
     }
-    
+ 
+    public function getProductsBySearch(?string $searchString){
+        $dao = new ProductDAO();
+        $results = $dao->getSearchResults($searchString);
+        return $results;
+    }
 }
 
 ?>

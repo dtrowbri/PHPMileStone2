@@ -1,4 +1,5 @@
 <?php 
+
 spl_autoload_register(function($class){
    
     $lastDirectories = substr(getcwd(), strlen(__DIR__));
