@@ -1,3 +1,4 @@
+
 <?php
 
 require_once '../shared/header.php';
@@ -17,8 +18,6 @@ $results = $service->getProductsBySearch($searchString);
 	<input type="submit" value="search">
 </form>
 <h2>Search Results</h2>
-<hr>
-
 <?php
 if($results){
     include("_displaySearchResults.php");

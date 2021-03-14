@@ -54,6 +54,38 @@ class ProductDAO
             return $products;
         }
     }
+
+    public function updateProduct(?Product $product){
+        $database = new database();
+        $conn = $database->getConnection();
+        
+        $query = "update products set PRODUCTNAME = ?, DESCRIPTION = ?, PRICE = ?, IMAGE = ? WHERE ID = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('ssdbi', $product->getName(), $product->getDescription(), $product->getPrice(), $product->getImage(), $product->getId());
+        $stmt->execute();
+        
+        if($stmt->affected_rows == 1){
+            echo "The product " . $product->getName() . " has successfully been updated.<br>";
+        } else {
+            echo "There was an issue updating the product " . $product->getName() . "<br>";
+        }
+    }
+
+    public function deleteProduct(?int $id, ?string $productName){
+        $database = new database();
+        $conn = $database->getConnection();
+        
+        $query = "delete from products where id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        
+        if($stmt->affected_rows == 1){
+            echo "The product " . $productName . " was successfully deleted.<br>";
+        } else {
+            echo "The product " . $productName . " was not successfully deleted. Please try again later.<br>";
+        }
+    }
 }
 
 ?>

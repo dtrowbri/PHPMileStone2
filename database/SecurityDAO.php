@@ -7,7 +7,7 @@ class SecurityDAO {
     public function Authenticate(?string $username, ?string $password){
         $database = new database();
         $conn = $database->getConnection();
-
+       
         $authenticationQuery = "select id from users where username like ? and password like ?";
         $stmt = $conn->prepare($authenticationQuery);
         $stmt->bind_param('ss', $username, $password);

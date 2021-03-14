@@ -15,6 +15,16 @@ class ProductService{
         $results = $dao->getSearchResults($searchString);
         return $results;
     }
+    
+    public function updateProduct(?Product $product){
+        $dao = new ProductDAO();
+        $dao->updateProduct($product);
+    }
+    
+    public function deleteProduct(?int $id, ?string $productName){
+        $dao = new ProductDAO();
+        $dao->deleteProduct($id, $productName);
+    }
 }
 
 ?>
