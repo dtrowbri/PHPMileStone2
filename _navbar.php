@@ -27,6 +27,7 @@
         	<ul class="dropdown-menu" aria-labeledby="navbarDropdown">
         		<li><a class="dropdown-item" href="../handlers/UsersHandler.php">Users</a>
         		<li><a class="dropdown-item" href="../handlers/ProductAdminHandler.php">Products</a>
+        		<li><a class="dropdown-item" href="../admin/AddProduct.php">Add Products</a>
         	</ul>
         </li>
 

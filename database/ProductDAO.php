@@ -86,6 +86,22 @@ class ProductDAO
             echo "The product " . $productName . " was not successfully deleted. Please try again later.<br>";
         }
     }
+
+    public function addProduct(?Product $product){
+        $database = new database();
+        $conn = $database->getConnection();
+        
+        $query = "insert into products (ID, PRODUCTNAME, DESCRIPTION, PRICE, IMAGE) VALUES (null, ?, ?,?, null)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('ssd', $product->getName(), $product->getDescription(), $product->getPrice());
+        $stmt->execute();
+        
+        if($stmt->affected_rows == 1){
+            echo $product->getName() . " has successfully been added to the database.<br>";
+        } else {
+            echo "The product was not successfully added to the database. Please try again.<br>";
+        }
+    }
 }
 
 ?>

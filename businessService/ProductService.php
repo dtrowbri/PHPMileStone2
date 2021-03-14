@@ -25,6 +25,11 @@ class ProductService{
         $dao = new ProductDAO();
         $dao->deleteProduct($id, $productName);
     }
+    
+    public function addProduct(?Product $product){
+        $dao = new ProductDAO();
+        $dao->addProduct($product);
+    }
 }
 
 ?>
