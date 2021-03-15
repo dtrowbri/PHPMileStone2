@@ -25,9 +25,10 @@
         <li class="nav-item dropdown">
         	<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Admin</a>
         	<ul class="dropdown-menu" aria-labeledby="navbarDropdown">
-        		<li><a class="dropdown-item" href="../handlers/UsersHandler.php">Users</a>
-        		<li><a class="dropdown-item" href="../handlers/ProductAdminHandler.php">Products</a>
-        		<li><a class="dropdown-item" href="../admin/AddProduct.php">Add Products</a>
+        		<li><a class="dropdown-item" href="../handlers/UsersHandler.php">Users</a></li>
+        		<li><a class="dropdown-item" href="../admin/AddUser.php">Add Users</a></li>
+        		<li><a class="dropdown-item" href="../handlers/ProductAdminHandler.php">Products</a></li>
+        		<li><a class="dropdown-item" href="../admin/AddProduct.php">Add Products</a></li>
         	</ul>
         </li>
 

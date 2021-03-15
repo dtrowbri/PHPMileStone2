@@ -8,8 +8,7 @@ $lastname = $_POST["lastName"];
 $username = $_POST["username"];
 $role = $_POST["role"];
 
-$user = new User($firstname, $lastname, $username, null);
-$user->setRole($role);
+$user = new User($firstname, $lastname, $username, null, $role);
 $user->setId($id);
 
 $service = new UserService();

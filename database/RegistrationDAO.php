@@ -29,10 +29,10 @@ class RegistrationDAO {
         $database = new database();
         $conn = $database->getConnection();
         
-        $insertUserQuery = "INSERT INTO `users`(`ID`, `ROLE`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `PASSWORD`) VALUES (null,1,?,?,?,?)";
+        $insertUserQuery = "INSERT INTO `users`(`ID`, `ROLE`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `PASSWORD`) VALUES (null,?,?,?,?,?)";
         
         $stmt = $conn->prepare($insertUserQuery);
-        $stmt->bind_param('ssss', $user->getFirstname(), $user->getLastname(), $user->getUsername(), $user->getPassword());
+        $stmt->bind_param('issss', $user->getRole(), $user->getFirstname(), $user->getLastname(), $user->getUsername(), $user->getPassword());
         
         $stmt->execute();
         

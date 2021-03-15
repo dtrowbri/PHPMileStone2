@@ -9,11 +9,12 @@ class User
     private $role;
     private $password;
     
-    public function __construct($firstname, $lastname, $username, $password){
+    public function __construct($firstname, $lastname, $username, $password, ?int $role){
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->username = $username;
         $this->password = $password;
+        $this->role = $role;
     }
  
     public function getId()

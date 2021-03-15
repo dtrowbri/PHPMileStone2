@@ -2,8 +2,9 @@
 require_once "../../AutoLoader.php";
 require_once "../shared/header.php";
 ?>
-<h2 class>Add Product</h2>
+
 <div class="container">
+<h2>Add Product</h2>
 	<form action="../handlers/AddProductHandler.php" method="post">
 		<div class="form-group">
 			<label for="name">Name</label>

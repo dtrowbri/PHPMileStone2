@@ -17,7 +17,7 @@ class UserDAO
             $results = $results->fetch_all();
             
             foreach($results as $row){
-                $user = new User($row[1], $row[2], $row[3], $row[5]);
+                $user = new User($row[1], $row[2], $row[3], $row[5], $row[4]);
                 $user->setId($row[0]);
                 $user->setRole($row[4]);
                 array_push($usersarray, $user);

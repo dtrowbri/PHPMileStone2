@@ -13,14 +13,19 @@ $street = $_POST["streetInput"];
 $city = $_POST["cityInput"];
 $state = $_POST["stateInput"];
 $zip = $_POST["zipInput"];
+$role = $_POST["role"];
 
 if($firstname == null || $lastname == null || $username == null || $password == null || $street == null || $city == null || $state == null || $zip == null){
     include "../register/registrationerror.php";
 }
 
+if($role == null){
+    $role = 1;
+}
+
 $service = new RegistrationService();
 
-$user = new User($firstname, $lastname, $username, $password);
+$user = new User($firstname, $lastname, $username, $password, $role);
 $address = new Address($street, $city, $state, $zip);
 
 if($service->doesUserExist($user)){

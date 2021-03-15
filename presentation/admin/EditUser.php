@@ -34,7 +34,12 @@ $role = $_POST["userRole"];
 		</div>
 		<div class="form-group">
 				<label for="role">Role</label>
-				<input type="text" class="form-control" value="<?php echo $role?>" name="role">
+				<select class="form-control" name="role">
+					<option <?php if($role == 1){echo "selected='selected'";}?>>1</option>
+					<option <?php if($role == 2){echo "selected='selected'";}?>>2</option>
+					<option <?php if($role == 3){echo "selected='selected'";}?>>3</option>
+					<option <?php if($role == 4){echo "selected='selected'";}?>>4</option>
+				</select>
 		</div>
 		<input type="submit" value="Submit">
 	</form>
