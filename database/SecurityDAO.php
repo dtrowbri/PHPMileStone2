@@ -17,9 +17,10 @@ class SecurityDAO {
         $results = $stmt->get_result();
         
         if($results->num_rows != 1){
-            return false;
+            return -1;
         } else {
-            return true;
+            $results = $results->fetch_assoc();
+            return $results["id"];
         }
     }
 }

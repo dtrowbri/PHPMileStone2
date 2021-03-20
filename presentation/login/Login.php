@@ -14,7 +14,7 @@ require_once '../../_navbar.php';
 		</div>
 		<div class="form-group">
     		<label for="passwordInput">Password:</label>
-    		<input type="password" class="form-control" placeholder="Username" name="passwordInput">
+    		<input type="password" class="form-control" placeholder="Password" name="passwordInput">
 		</div>
 		<input type="submit" value="Login" class="btn btn-primary"/>
 	</form>

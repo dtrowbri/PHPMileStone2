@@ -4,6 +4,7 @@
 <body>
 <?php
 require_once '../shared/header.php';
+require_once '../../_navbar.php';
 ?>
 <div class="container">
 

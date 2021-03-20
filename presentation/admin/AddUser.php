@@ -4,6 +4,8 @@
 <body>
 <?php
 require_once '../shared/header.php';
+require_once '../../_navbar.php';
+include_once '../shared/AuthenticationCheck.php';
 ?>
 <div class="container">
 	<h2>Add User</h2>

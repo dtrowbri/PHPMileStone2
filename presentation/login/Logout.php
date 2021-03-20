@@ -1,5 +1,5 @@
 <?php
-session_destroy();
-$_SESSION['principal'] = false;
+require_once '../shared/header.php';
+session_unset();
 include_once 'Login.php';
 ?>

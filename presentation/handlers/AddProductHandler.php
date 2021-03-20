@@ -1,6 +1,7 @@
 <?php
 require_once "../../AutoLoader.php";
 require_once "../shared/header.php";
+require_once '../../_navbar.php';
 
 $name = $_POST["name"];
 $description = $_POST["description"];

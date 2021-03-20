@@ -9,9 +9,11 @@ $username = $_POST["usernameInput"];
 $password = $_POST["passwordInput"];
 $service = new SecurityService();
 
+$userid = $service->Authenticate($username, $password);
 
-if($username != null && $password != null && $service->Authenticate($username, $password)){
+if($username != null && $password != null && $userid > 0){
     $_SESSION['principal'] = true;
+    $_SESSION['userid'] = $userid;
     include "../login/LoginSuccess.php";
 } else {
     $_SESSION['principal'] = false;

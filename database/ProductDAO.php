@@ -102,6 +102,26 @@ class ProductDAO
             echo "The product was not successfully added to the database. Please try again.<br>";
         }
     }
+    
+    public function findProductById(?int $id){
+        $database = new database();
+        $conn = $database->getConnection();
+        
+        $query = "SELECT `ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`, `IMAGE` FROM `products` where ID = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        
+        $results = $stmt->get_result();
+        
+        if($results->num_rows == 1){
+            $results = $results->fetch_assoc();
+            $product = new Product($results["ID"], $results["PRODUCTNAME"], $results["DESCRIPTION"], $results["PRICE"], $results["IMAGE"]);
+            return $product;
+        } else {
+            echo "There was an issue retrieving product with id: " . $id . "<br>";
+        }
+    }
 }
 
 ?>

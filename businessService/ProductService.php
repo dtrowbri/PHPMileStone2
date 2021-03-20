@@ -30,6 +30,12 @@ class ProductService{
         $dao = new ProductDAO();
         $dao->addProduct($product);
     }
+    
+    public function findProductById(?int $id){
+        $dao = new ProductDAO();
+        $product = $dao->findProductById($id);
+        return $product;
+    }
 }
 
 ?>
