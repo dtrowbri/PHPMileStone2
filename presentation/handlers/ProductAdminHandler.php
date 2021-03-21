@@ -1,8 +1,6 @@
 <?php
-
 require_once '../shared/header.php';
-require_once '../../AutoLoader.php';
-require_once '../../_navbar.php';
+include_once '../shared/AuthenticationCheck.php';
 
 
 $searchString = $_POST["searchStringInput"];
