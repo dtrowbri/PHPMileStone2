@@ -4,5 +4,5 @@
 <?php
 require_once '../../AutoLoader.php';
 session_start();
-//require_once '../../_navbar.php';
+require_once '../../_navbar.php';
 ?>

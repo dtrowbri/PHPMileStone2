@@ -14,7 +14,7 @@ $userid = $service->Authenticate($username, $password);
 if($username != null && $password != null && $userid > 0){
     $_SESSION['principal'] = true;
     $_SESSION['userid'] = $userid;
-    include "../login/LoginSuccess.php";
+    header("Location: ProductSearchHandler.php");
 } else {
     $_SESSION['principal'] = false;
     include "../login/LoginFailure.php";

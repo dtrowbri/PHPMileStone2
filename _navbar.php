@@ -31,7 +31,6 @@
         		<li><a class="dropdown-item" href="../admin/AddProduct.php">Add Products</a></li>
         	</ul>
         </li>
-
       </ul>
     </div>
   </div>

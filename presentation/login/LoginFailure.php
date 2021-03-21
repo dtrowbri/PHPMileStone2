@@ -1,6 +1,8 @@
 <?php
 require_once '../shared/header.php';
 require_once '../../_navbar.php';
-echo "Username or password are incorrect. Please try again.";
 
+echo '<div class="container">';
+echo "Username or password are incorrect. Please try again.";
+echo "</div>";
 ?>

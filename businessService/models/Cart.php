@@ -55,7 +55,7 @@ class Cart
         $this->userid = $userid;
     }
     
-    public function caculateCartTotat(){
+    public function caculateCartTotal(){
         $subtotalArr = array();
         $service = new ProductService();
         $this->total_price = 0;
@@ -80,9 +80,12 @@ class Cart
         }else{
             $this->items = $this->items + array($product_id => 1);
         }
+        
+        $this->caculateCartTotal();
     }
     
     public function updateQTY(?int $product_id, ?int $newqty){
+        echo "updating quantity";
         if(array_key_exists($product_id, $this->items)){
             $this->items[$product_id] = $newqty;
         }else{
@@ -92,6 +95,8 @@ class Cart
         if($this->items[$product_id] == 0){
             unset($this->items[$product_id]);
         }
+        
+        $this->caculateCartTotal();
     }
     
     /**

@@ -1,7 +1,6 @@
 <?php 
 require_once "../../AutoLoader.php";
 require_once "../shared/header.php";
-require_once '../../_navbar.php';
 
 $service = new UserService();
 $users = $service->getAllUsers();
