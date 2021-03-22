@@ -25,7 +25,7 @@ echo '<table class="table table-bordered"><thead><tr class="table-light"><td>Pro
 foreach($cart->getItems() as $id=>$Quantity){
     $product = $productService->findProductById($id);
     echo "<tr>";
-    echo "<td>" . $product->getName() . "</td>";
+    echo '<td><a href="../handlers/ProductDetailHandler.php?productId=' . $product->getId() . '">' . $product->getName() . "</a></td>";
     echo "<td>";
     echo '<form action="UpdateCart.php" method="post">';
     echo '<input type="hidden" name="id" value="' . $id .'">';

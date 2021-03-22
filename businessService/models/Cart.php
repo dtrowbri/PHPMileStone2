@@ -85,7 +85,6 @@ class Cart
     }
     
     public function updateQTY(?int $product_id, ?int $newqty){
-        echo "updating quantity";
         if(array_key_exists($product_id, $this->items)){
             $this->items[$product_id] = $newqty;
         }else{

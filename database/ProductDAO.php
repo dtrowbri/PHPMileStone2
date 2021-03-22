@@ -59,9 +59,9 @@ class ProductDAO
         $database = new database();
         $conn = $database->getConnection();
         
-        $query = "update products set PRODUCTNAME = ?, DESCRIPTION = ?, PRICE = ?, IMAGE = ? WHERE ID = ?";
+        $query = "update products set PRODUCTNAME = ?, DESCRIPTION = ?, PRICE = ? WHERE ID = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('ssdbi', $product->getName(), $product->getDescription(), $product->getPrice(), $product->getImage(), $product->getId());
+        $stmt->bind_param('ssdi', $product->getName(), $product->getDescription(), $product->getPrice(),  $product->getId());
         $stmt->execute();
         
         if($stmt->affected_rows == 1){
