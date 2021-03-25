@@ -5,9 +5,10 @@ require_once "../../AutoLoader.php";
 
 class ProductDAO
 {
-    public function getAllProducts(){
-        $database = new database();
-        $conn = $database->getConnection();
+    
+    public function getAllProducts($conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $productQuery = "SELECT `ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`, `IMAGE` FROM `products`";
         $stmt = $conn->prepare($productQuery);
@@ -29,9 +30,9 @@ class ProductDAO
         }
     }
 
-    public function getSearchResults(?string $searchString){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function getSearchResults(?string $searchString, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $searchQuery = "SELECT `ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`, `IMAGE` FROM `products` where PRODUCTNAME LIKE ? OR DESCRIPTION LIKE ?";
         $stmt = $conn->prepare($searchQuery);
@@ -55,9 +56,9 @@ class ProductDAO
         }
     }
 
-    public function updateProduct(?Product $product){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function updateProduct(?Product $product, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "update products set PRODUCTNAME = ?, DESCRIPTION = ?, PRICE = ? WHERE ID = ?";
         $stmt = $conn->prepare($query);
@@ -71,9 +72,9 @@ class ProductDAO
         }
     }
 
-    public function deleteProduct(?int $id, ?string $productName){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function deleteProduct(?int $id, ?string $productName, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "delete from products where id = ?";
         $stmt = $conn->prepare($query);
@@ -87,9 +88,9 @@ class ProductDAO
         }
     }
 
-    public function addProduct(?Product $product){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function addProduct(?Product $product, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "insert into products (ID, PRODUCTNAME, DESCRIPTION, PRICE, IMAGE) VALUES (null, ?, ?,?, null)";
         $stmt = $conn->prepare($query);
@@ -103,9 +104,9 @@ class ProductDAO
         }
     }
     
-    public function findProductById(?int $id){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function findProductById(?int $id, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "SELECT `ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`, `IMAGE` FROM `products` where ID = ?";
         $stmt = $conn->prepare($query);
