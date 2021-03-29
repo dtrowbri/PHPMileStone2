@@ -39,6 +39,6 @@ foreach($cart->getItems() as $id=>$Quantity){
 echo '<tr class="table-light"><td colspan="3" style="text-align: right;">Total:</td><td>' . $cart->getTotal_price() . "</td></tr>";
 echo "</tbody></table>";
 echo '<form action="../handlers/ProductSearchHandler.php"><input type="submit" value="Keep Shopping"></form>';
-echo '<form action="CreditCardEntryForm.php"><input type="submit" value="Proceed to Checkout"></form>';
+echo '<form action="CreditCardSelector.php"><input type="submit" value="Proceed to Checkout"></form>';
 echo "</div>";
 ?>

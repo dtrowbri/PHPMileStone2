@@ -3,9 +3,9 @@ require_once '../../AutoLoader.php';
 
 class UserDAO
 {
-    public function getAllUsers(){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function getAllUsers($conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "select ID, FIRSTNAME, LASTNAME, USERNAME, ROLE, PASSWORD from users";
         $stmt = $conn->prepare($query);
@@ -29,9 +29,9 @@ class UserDAO
         }
     }
     
-    public function updateUser(?User $user){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function updateUser(?User $user, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "update users set FIRSTNAME = ?, LASTNAME = ?, ROLE = ?, USERNAME = ? WHERE ID = ?";
         $stmt = $conn->prepare($query);
@@ -45,9 +45,9 @@ class UserDAO
         }
     }
     
-    public function deleteUser(?int $id, ?string $username){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function deleteUser(?int $id, ?string $username, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $query = "delete from users where id = ?";
         $stmt = $conn->prepare($query);

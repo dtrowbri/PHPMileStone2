@@ -4,9 +4,9 @@ require_once '../../AutoLoader.php';
 
 class SecurityDAO {
     
-    public function Authenticate(?string $username, ?string $password){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function Authenticate(?string $username, ?string $password, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
        
         $authenticationQuery = "select id from users where username like ? and password like ?";
         $stmt = $conn->prepare($authenticationQuery);

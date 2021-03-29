@@ -6,11 +6,12 @@ class Order
     private $date;
     private $users_id;
     private $address_id;
+    private $credit_card_id;
     
-    private function __construct($date, ?int $userid, ?int $addressid){
-        $this->date = $date;
+    public function __construct(?int $userid, ?int $addressid, ?int $credit_card_id){
         $this->users_id = $userid;
         $this->address_id = $addressid;
+        $this->credit_card_id = $credit_card_id;
     }
     
     public function getId()
@@ -52,6 +53,17 @@ class Order
     {
         $this->address_id = $address_id;
     }
+
+    public function getCredit_card_id()
+    {
+        return $this->credit_card_id;
+    }
+
+    public function setCredit_card_id($credit_card_id)
+    {
+        $this->credit_card_id = $credit_card_id;
+    }
+
 
     
     

@@ -4,10 +4,11 @@
 require_once '../../AutoLoader.php';
 
 class RegistrationDAO {
+   
     
-    public function doesUserExist(?User $user){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function doesUserExist(?User $user, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $userCheckQuery = "select id from users where username like ?";
         $stmt = $conn->prepare($userCheckQuery);
@@ -25,9 +26,9 @@ class RegistrationDAO {
     }
     
     
-    public function AddUser(?User $user, ?Address $address){
-        $database = new database();
-        $conn = $database->getConnection();
+    public function AddUser(?User $user, ?Address $address, $conn){
+        //$database = new database();
+        //$conn = $database->getConnection();
         
         $insertUserQuery = "INSERT INTO `users`(`ID`, `ROLE`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `PASSWORD`) VALUES (null,?,?,?,?,?)";
         

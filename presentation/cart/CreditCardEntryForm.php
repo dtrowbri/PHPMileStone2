@@ -9,7 +9,7 @@ if(!isset($_SESSION['cart']) || $_SESSION['cart']->getTotal_price() <=0 || !isse
 ?>
 
 <div class="container">
-	<form>
+	<form action="CreditCardHandler.php" method="post">
 		<div class="row">
 			<div class="col">
 				<label for="name">Name on Card</label>
@@ -32,12 +32,6 @@ if(!isset($_SESSION['cart']) || $_SESSION['cart']->getTotal_price() <=0 || !isse
 			<div class="col">
 				<label for="ccv">CCV</label>
 				<input type="text" class="form-control" placeholder="CCV" name="ccv">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<label for="zipCode">Zip Code</label>
-				<input type="text" class="form-control" placeholder="Zip Code" name="zipCode">
 			</div>
 		</div>
 		<input type="submit" value="submit" class="btn btn-primary">

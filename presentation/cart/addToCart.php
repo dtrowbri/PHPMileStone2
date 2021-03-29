@@ -1,6 +1,7 @@
 <?php 
 require_once '../shared/header.php';
 require_once '../../Autoloader.php';
+include_once '../shared/AuthenticationCheck.php';
 
 $id = $_POST['id'];
 $cart = null;
