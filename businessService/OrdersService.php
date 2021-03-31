@@ -55,5 +55,13 @@ class OrdersService {
         $conn->close();
         return $results;
     }
+    
+    public function getOrderById(?int $id){
+        $conn = $this->database->getConnection();
+        $orderDAO = new OrderDAO();
+        $result = $orderDAO->getOrderById($id, $conn);
+        $conn->close();
+        return $result;
+    }
 }
 ?>

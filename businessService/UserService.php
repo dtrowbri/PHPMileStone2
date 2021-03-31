@@ -34,6 +34,14 @@ class UserService
         $dao->deleteUser($id, $username, $conn);
         $conn->close();
     }
+    
+    public function getUserById(?int $id){
+        $conn = $this->database->getConnection();
+        $userDAO = new UserDAO();
+        $result = $userDAO->getUserById($id, $conn);
+        $conn->close();
+        return $result;
+    }
 }
 
 ?>

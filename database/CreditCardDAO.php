@@ -38,6 +38,21 @@ class CreditCardDAO {
         }
     }
     
+    public function getCreditCardById(?int $id, $conn){
+        $query = "SELECT CREDIT_CARD_NUMBER FROM CREDITCARDS WHERE ID = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if($result->num_rows == 1){
+            $result = $result->fetch_assoc();
+            $creditCardNumber = $result["CREDIT_CARD_NUMBER"];
+            return $creditCardNumber;  
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>

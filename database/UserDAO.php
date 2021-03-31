@@ -60,6 +60,22 @@ class UserDAO
             echo "User: " . $username . " was not successfully deleted. Please try again.";
         }
     }
+
+    public function getUserById(?int $id, $conn){
+        $query = "SELECT CONCAT(FIRSTNAME, ' ', LASTNAME) AS 'USER' FROM USERS WHERE ID = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if($result->num_rows == 1){
+            $result = $result->fetch_assoc();
+            $user = $result["USER"];
+            return $user;
+        } else {
+           return null;
+        }
+    }
 }
 
 ?>

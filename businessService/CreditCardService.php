@@ -25,6 +25,14 @@ class CreditCardService {
         $conn->close();
         return $creditcards;
     }
+    
+    public function getCreditCardById(?int $id){
+        $conn = $this->database->getConnection();
+        $creditCardDAO = new CreditCardDAO();
+        $result = $creditCardDAO->getCreditCardById($id, $conn);
+        $conn->close();
+        return $result;
+    }
 }
 
 ?>

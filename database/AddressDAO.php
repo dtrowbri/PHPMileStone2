@@ -17,6 +17,22 @@ class AddressDAO {
         }
     }
     
+    public function getAddressById(?int $id, $conn){
+        $query ="SELECT CONCAT(STREET, ' ', CITY, ' ', STATE, ' ', POSTALCODE) AS 'ADDRESS' FROM ADDRESSES WHERE ID = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if($result->num_rows == 1){
+            $result = $result->fetch_assoc();
+            $address = $result["ADDRESS"];
+            return $address;
+        } else {
+            return null;
+        }
+    }
+    
 }
 
 ?>
