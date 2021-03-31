@@ -47,5 +47,13 @@ class OrdersService {
         $conn->close();
         return $orderid;
     }
+
+    public function getOrderbyDateSortedByQuantity($date1, $date2){
+        $conn = $this->database->getConnection();
+        $ordersDAO = new OrderDAO();
+        $results = $ordersDAO->getOrderbyDateSortedByQuantity($date1, $date2, $conn);
+        $conn->close();
+        return $results;
+    }
 }
 ?>

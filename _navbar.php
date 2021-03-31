@@ -31,6 +31,9 @@
         		<li><a class="dropdown-item" href="../admin/AddProduct.php">Add Products</a></li>
         	</ul>
         </li>
+        <li class="nav_item">
+        	<a class="nav-link" href="../reports/OrderReport.php">Orders Report</a>
+        </li>
       </ul>
     </div>
   </div>
