@@ -1,3 +1,33 @@
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<style>
+#orders {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#orders td, #orders th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#orders tr:nth-child(even){background-color: #f2f2f2;}
+
+#orders tr:hover {background-color: #ddd;}
+
+#orders th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
 <?php
 
 require_once '../shared/header.php';
@@ -20,7 +50,7 @@ if(!isset($orders) || $orders == null || count($orders) == 0){
     $userService = new UserService();
     $creditCardService = new CreditCardService();
     
-    echo "<table><thead><tr><th>OrderId</th><th>User ID</th><th>Quantity</th><th>Date</th><th>Address</th><th>Credit Card</th></tr></thead><tbody>";
+    echo '<table id="orders" class="display"><thead><tr><th>OrderId</th><th>User ID</th><th>Quantity</th><th>Date</th><th>Address</th><th>Credit Card</th></tr></thead><tbody>';
     foreach($orders as $order=>$quantity){
         $order = $ordersService->getOrderById($order);
         echo "<tr>";
@@ -29,7 +59,7 @@ if(!isset($orders) || $orders == null || count($orders) == 0){
         echo "<td>" . $quantity . "</td>";
         echo "<td>" . $order->getDate() . "</td>";
         echo "<td>" . $addressService->getAddressById($order->getAddress_id()) . "</td>";
-        echo "<td>" . $creditCardService->getCreditCardById($order->getCredit_card_id()) . "</td>";
+        echo "<td>****-****-****-" . substr(strval($creditCardService->getCreditCardById($order->getCredit_card_id())),15,19) . "</td>";
         echo "</tr>"; 
     }
     
@@ -38,3 +68,11 @@ if(!isset($orders) || $orders == null || count($orders) == 0){
 
 echo "</div>";
 ?>
+
+<script>
+$(document).ready( function () {
+    $('#orders').DataTable({
+		"order" : [[2, "desc"]]
+    });
+} );
+</script>
