@@ -59,7 +59,7 @@ if(!isset($orders) || $orders == null || count($orders) == 0){
         echo "<td>" . $quantity . "</td>";
         echo "<td>" . $order->getDate() . "</td>";
         echo "<td>" . $addressService->getAddressById($order->getAddress_id()) . "</td>";
-        echo "<td>****-****-****-" . substr(strval($creditCardService->getCreditCardById($order->getCredit_card_id())),15,19) . "</td>";
+        echo "<td>****-****-****-" . substr($creditCardService->getCreditCardById($order->getCredit_card_id()),15,19) . "</td>";
         echo "</tr>"; 
     }
     

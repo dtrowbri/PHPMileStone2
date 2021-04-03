@@ -60,6 +60,43 @@ class OrderDAO {
             return null;
         }
     }
+
+    public function getOrderQuantityReport($date1, $date2, $conn){
+       
+        $query = "select 
+                    	o.id as 'OrderId', 
+                        concat(u.FIRSTNAME, ' ', u.LASTNAME) as 'UserName', 
+                        sum(od.QUANTITY) as 'Quantity', 
+                        o.date as 'Date',
+                        concat(a.street, ' ', a.city, ' ', a.state, ' ', a.postalcode) as 'Address', 
+                        cc.CREDIT_CARD_NUMBER as 'CreditCardNumber'
+                      from orders o
+                    join users u on u.id = o.USERS_ID
+                    join orderdetails od on od.ORDERS_ID = o.id
+                    join addresses a on a.id = o.addresses_id
+                    join creditcards cc on cc.id = o.CREDIT_CARD_ID
+                    where date between ? and ?
+                    group by o.id
+                    order by sum(od.QUANTITY)desc";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('ss', $date1, $date2);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        
+        if($results->num_rows > 0){
+            $results = $results->fetch_all();
+            $orderReports = array();
+            
+            
+            foreach($results as $order){
+                $orderReport = new OrderReport($order[0], $order[1], $order[2], $order[3], $order[4], $order[5]);
+                array_push($orderReports, $orderReport);
+            }
+            return $orderReports;
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>

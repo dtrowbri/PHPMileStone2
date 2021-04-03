@@ -63,5 +63,13 @@ class OrdersService {
         $conn->close();
         return $result;
     }
+    
+    public function getOrderQuantityReport($date1, $date2){
+        $conn = $this->database->getConnection();
+        $ordersDAO = new OrderDAO();
+        $results = $ordersDAO->getOrderQuantityReport($date1, $date2, $conn);
+        $conn->close();
+        return $results;
+    }
 }
 ?>

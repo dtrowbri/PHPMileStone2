@@ -34,6 +34,9 @@
         <li class="nav_item">
         	<a class="nav-link" href="../reports/OrderReport.php">Orders Report</a>
         </li>
+        <li class="nav_item">
+        	<a class="nav-link" href="../api/OrderAPI.php">Orders API</a>
+        </li>
       </ul>
     </div>
   </div>
