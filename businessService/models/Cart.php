@@ -8,6 +8,8 @@ class Cart
     private $items = array();
     private $subtotals = array();
     private $total_price;
+    private $coupon;
+    private $discountPercentage;
     
     public function __construct(?int $userid){
         $this->userid = $userid;
@@ -113,6 +115,38 @@ class Cart
     {
         $this->total_price = $total_price;
     }
+    /**
+     * @return mixed
+     */
+    public function getCoupon()
+    {
+        return $this->coupon;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDiscountPercentage()
+    {
+        return $this->discountPercentage;
+    }
+
+    /**
+     * @param mixed $coupon
+     */
+    public function setCoupon($coupon)
+    {
+        $this->coupon = $coupon;
+    }
+
+    /**
+     * @param mixed $discountPercentage
+     */
+    public function setDiscountPercentage($discountPercentage)
+    {
+        $this->discountPercentage = $discountPercentage;
+    }
+
 
     
     

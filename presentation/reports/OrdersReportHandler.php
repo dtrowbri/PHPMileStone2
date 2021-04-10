@@ -50,7 +50,7 @@ if(!isset($orders) || $orders == null || count($orders) == 0){
     $userService = new UserService();
     $creditCardService = new CreditCardService();
     
-    echo '<table id="orders" class="display"><thead><tr><th>OrderId</th><th>User ID</th><th>Quantity</th><th>Date</th><th>Address</th><th>Credit Card</th></tr></thead><tbody>';
+    echo '<table id="orders" class="display"><thead><tr><th>OrderId</th><th>User Name</th><th>Quantity</th><th>Date</th><th>Address</th><th>Credit Card</th></tr></thead><tbody>';
     foreach($orders as $order=>$quantity){
         $order = $ordersService->getOrderById($order);
         echo "<tr>";

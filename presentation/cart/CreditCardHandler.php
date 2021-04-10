@@ -2,6 +2,7 @@
 
 require_once '../shared/header.php';
 require_once '../../AutoLoader.php';
+include_once '../shared/AuthenticationCheck.php';
 
 $nameOnCard = $_POST["name"];
 $creditCardNumber = $_POST["cardNumber"];

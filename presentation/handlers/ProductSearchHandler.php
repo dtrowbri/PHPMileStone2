@@ -18,6 +18,8 @@ $results = $service->getProductsBySearch($searchString);
 	<input type="text" name="searchStringInput">
 	<input type="submit" value="search">
 </form>-->
+
+<div class="container">
 <h2>Search Results</h2>
 <?php
 if($results){
@@ -26,3 +28,4 @@ if($results){
     echo "No search results found.";
 }
 ?>
+</div>

@@ -21,7 +21,9 @@
         <li class="nav-item">
           <a class="nav-link" href="../handlers/ProductSearchHandler.php">Products</a>
         </li>
-        
+        <li class="nav-item">
+        	<a class="nav-link" href="../cart/ShowCart.php">Cart</a>
+        </li>
         <li class="nav-item dropdown">
         	<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Admin</a>
         	<ul class="dropdown-menu" aria-labeledby="navbarDropdown">
