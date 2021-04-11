@@ -56,8 +56,35 @@ class CouponsDAO {
     }
 
     public function getUnlimitedCoupon(?string $couponCode, $conn){
-        $database = new database();
-        $conn = $database->getConnection();
+        $query = "SELECT DISCOUNT_PERCENTAGE FROM COUPONS WHERE COUPON_CODE = ? AND COUPON_TYPE = 3;";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('s', $couponCode);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if($result->num_rows == 1){
+            $result = $result->fetch_assoc();
+            $discount = $result["DISCOUNT_PERCENTAGE"];
+            return $discount;
+        } else {
+            return 0;
+        }
+    }
+
+    public function getCouponType(?string $couponCode, $conn){
+        $query = "SELECT COUPON_TYPE FROM COUPONS WHERE COUPON_CODE = ?;";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('s', $couponCode);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if($result->num_rows == 1){
+            $result = $result->fetch_assoc();
+            $couponType = $result["COUPON_TYPE"];
+            return $couponType;
+        } else {
+            return 0;
+        }
     }
 }
 

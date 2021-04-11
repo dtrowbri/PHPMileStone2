@@ -37,7 +37,21 @@ foreach($cart->getItems() as $id=>$Quantity){
     echo "</tr>";
 }
 
-echo '<tr class="table-light"><td colspan="3" style="text-align: right;">Total:</td><td>' . $cart->getTotal_price() . "</td></tr>";
+echo '<tr class="table-light">';
+echo '<td colspan="3" style="text-align: right;">Coupon Code: ' . $cart->getCouponCode() . '</td>';
+echo '<td>';
+
+$couponError = $cart->getCouponError();
+if(isset($couponError) && $couponError != null){
+    echo '$0.00';
+}else{
+    echo '$' . $cart->getDiscountPrice();
+}
+
+echo '</td>';
+echo '</tr>';
+
+echo '<tr class="table-light"><td colspan="3" style="text-align: right;">Total:</td><td>$' . $cart->getTotal_price() . "</td></tr>";
 echo "</tbody></table>";
 echo '<form action="CouponHandler.php" method="post"><div class="row"><div class="form-group"><label>Coupon Code:</label><input type="text" name="couponCode"><input type="submit" value="Add Coupon"></div></form>';
 echo '<form action="../handlers/ProductSearchHandler.php"><input type="submit" value="Keep Shopping"></form>';

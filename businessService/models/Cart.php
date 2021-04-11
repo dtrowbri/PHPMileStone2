@@ -8,8 +8,9 @@ class Cart
     private $items = array();
     private $subtotals = array();
     private $total_price;
-    private $coupon;
+    private $couponCode;
     private $discountPercentage;
+    private $couponError;
     
     public function __construct(?int $userid){
         $this->userid = $userid;
@@ -17,41 +18,27 @@ class Cart
         $this->subtotals = array();
         $this->total_price = 0;
     }
-    /**
-     * @return int
-     */
+
     public function getUserid()
     {
         return $this->userid;
     }
 
-    /**
-     * @return multitype:
-     */
     public function getItems()
     {
         return $this->items;
     }
 
-    /**
-     * @return multitype:
-     */
     public function getSubtotals()
     {
         return $this->subtotals;
     }
 
-    /**
-     * @return number
-     */
     public function getTotal_price()
     {
-        return $this->total_price;
+        return $this->total_price + $this->getDiscountPrice();
     }
 
-    /**
-     * @param int $userid
-     */
     public function setUserid($userid)
     {
         $this->userid = $userid;
@@ -72,9 +59,6 @@ class Cart
         $this->subtotals = $subtotalArr;
     }
     
-    /**
-     * @param multitype: $items
-     */
     public function addItem( $product_id)
     {
         if(array_key_exists($product_id, $this->items)){
@@ -100,55 +84,54 @@ class Cart
         $this->caculateCartTotal();
     }
     
-    /**
-     * @param multitype: $subtotals
-     */
     public function setSubtotals($subtotals)
     {
         $this->subtotals = $subtotals;
     }
 
-    /**
-     * @param number $total_price
-     */
     public function setTotal_price($total_price)
     {
         $this->total_price = $total_price;
     }
-    /**
-     * @return mixed
-     */
-    public function getCoupon()
+
+    public function getCouponCode()
     {
-        return $this->coupon;
+        return $this->couponCode;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDiscountPercentage()
     {
         return $this->discountPercentage;
     }
 
-    /**
-     * @param mixed $coupon
-     */
-    public function setCoupon($coupon)
+    public function setCouponCode($couponCode)
     {
-        $this->coupon = $coupon;
+        $this->couponCode = $couponCode;
     }
 
-    /**
-     * @param mixed $discountPercentage
-     */
     public function setDiscountPercentage($discountPercentage)
     {
         $this->discountPercentage = $discountPercentage;
     }
 
+    public function getCouponError(){
+        return $this->couponError;
+    }
+    
+    public function setCouponError(?string $error){
+        $this->couponError = $error;
+    }
 
-    
-    
+    public function clearCoupon(){
+        unset($this->coupon);
+        unset($this->couponError);
+        unset($this->discountPercentage);
+    }
+
+    public function getDiscountPrice(){
+        if(isset($this->discountPercentage) && $this->couponError == null){
+            return round($this->total_price * (($this->discountPercentage)/100), 2) * -1;
+        }
+    }
 }
 ?>
