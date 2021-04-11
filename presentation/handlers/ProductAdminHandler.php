@@ -17,6 +17,6 @@ if($results){
 } else {
     echo "No search results found.";
 }
-echo '</div>';
+echo "</div>";
 include_once '../../footer.php';
 ?>

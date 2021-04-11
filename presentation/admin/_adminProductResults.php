@@ -54,10 +54,10 @@ for($i = 0; $i < count($results); $i++){
     echo '<input type="hidden" name="productDescription" value = "' . $results[$i]->getDescription() . '">';
     echo '<input type="hidden" name="productPrice" value = "' . $results[$i]->getPrice() . '">';
     echo '<input type="hidden" name="productImage" value = "' . $results[$i]->getImage() . '">';
-    echo '<input type="submit" value="Edit" style="width:250px;height:50px;">';
+    echo '<input type="submit" value="Edit" style="width:150px;height:40px;">';
     echo '</form></td>';
     echo '<td><form action="../admin/DeleteProduct.php" method="post"><input type="hidden" name="id" value="' . $results[$i]->getId() . '">';
-    echo '<input type="hidden" name="productName" value="' . $results[$i]->getName() . '"><input type="submit" value="Delete" style="width:250px;height:50px"></form></td>';
+    echo '<input type="hidden" name="productName" value="' . $results[$i]->getName() . '"><input type="submit" value="Delete" style="width:150px;height:40px"></form></td>';
     echo "</tr>";
 }
 

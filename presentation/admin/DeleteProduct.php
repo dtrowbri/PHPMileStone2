@@ -9,4 +9,5 @@ $productName = $_POST["productName"];
 $service = new ProductService();
 $service->deleteProduct($id, $productName);
 
+include_once '../../footer.php';
 ?>
