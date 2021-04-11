@@ -42,7 +42,7 @@ $role = $_POST["userRole"];
 					<option <?php if($role == 4){echo "selected='selected'";}?>>4</option>
 				</select>
 		</div>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" class="btn btn-primary">
 	</form>
 </div>
 <?php include_once '../../footer.php'; ?>

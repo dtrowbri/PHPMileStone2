@@ -19,7 +19,7 @@ $productService = new ProductService();
 
 
 echo '<div class="container">';
-echo "<h2>Shopping Cart</h2>";
+echo '<h2>Shopping Cart</h2>';
 echo '<table class="table table-bordered"><thead><tr class="table-light"><td>Product</td><td>Quantity</td><td>Price</td><td>Subtotal</td></tr></thead><tbody>';
 
 foreach($cart->getItems() as $id=>$Quantity){
@@ -59,9 +59,19 @@ echo '</tr>';
 
 echo '<tr class="table-light"><td colspan="3" style="text-align: right;">Total:</td><td>$' . $cart->getTotal_price() . "</td></tr>";
 echo "</tbody></table>";
-echo '<form action="CouponHandler.php" method="post"><div class="row"><div class="form-group"><label>Coupon Code:</label><input type="text" name="couponCode"><input type="submit" value="Add Coupon"></div></form>';
-echo '<form action="../handlers/ProductSearchHandler.php"><input type="submit" value="Keep Shopping"></form>';
-echo '<form action="CreditCardSelector.php"><input type="submit" value="Proceed to Checkout"></form>';
+
+echo '<form action="CouponHandler.php" method="post"><div class="row"><div class="form-group"><label style="margin-right: 5px">Coupon Code:</label>';
+echo '<input type="text" name="couponCode" style="margin-right: 5px"><input type="submit" value="Add Coupon"></div></form>';
+
+if(isset($couponError)){
+    echo "<br>";
+    echo '<label style="color: red">' . $couponError . '</label>';
+}
+
+echo '<div>';
+echo '<div style="display: inline-block;"><form action="../handlers/ProductSearchHandler.php"><input type="submit" value="Keep Shopping"></form></div>';
+echo '<div style="display: inline-block;"><form action="CreditCardSelector.php"><input type="submit" value="Proceed to Checkout"></form></div>';
+echo '</div>';
 echo "</div>";
 echo "</div>";
 

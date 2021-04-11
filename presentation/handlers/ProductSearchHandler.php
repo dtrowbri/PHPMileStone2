@@ -14,11 +14,6 @@ $results = $service->getProductsBySearch($searchString);
 
 ?>
 
-<!-- <form action="/ecommerce/presentation/handlers/ProductSearchHandler.php" method="post">
-	<input type="text" name="searchStringInput">
-	<input type="submit" value="search">
-</form>-->
-
 <div class="container">
 <h2>Search Results</h2>
 <?php

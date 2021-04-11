@@ -30,7 +30,7 @@ if(!isset($enddate) || $enddate != null){
     	<input type="date" name="startdate" id="mindate"  min="2020-01-01" max="<?php echo date("Y-m-d");?>" onchange="setMinValue();" value="<?php echo $startdatevalue;?>">
     	<label for="startdate">End Date: </label>
     	<input type="date" name="enddate" id="maxdate" min="2020-01-01" max="<?php echo date("Y-m-d");?>" onchange="setMaxValue();" value="<?php echo $enddatevalue;?>">
-    	<input type="submit" value="Run Report">
+    	<input type="submit" value="Run Report" class="btn btn-primary">
     </form>
 </div>
 <?php include_once '../../footer.php'; ?>

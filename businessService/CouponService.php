@@ -21,14 +21,14 @@ class CouponService {
         if($couponType == 1){
             $result = $service->getTimeBasedCoupon($couponCode, $conn);
             if($result == 0){
-                $result = "Time frame invalid!";
+                $result = 'Coupon "' . $couponCode . '" cannot be used at this time. It is past the experiation date or before the promotional date.';
             }
         }
         
         if($couponType == 2){
             $couponAlreadyUsed = $service->hasOneTimeCouponBeenUsed($userid, $couponCode, $conn);
             if($couponAlreadyUsed == 1){
-                $result = "Already Used!";
+                $result = 'Coupon "' . $couponCode . '" has already been used';
             } else {
                 $result = $service->getOneTimeCoupon($couponCode, $conn);
             }
