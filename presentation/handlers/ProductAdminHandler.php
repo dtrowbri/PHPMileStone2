@@ -9,6 +9,7 @@ $service = new ProductService();
 $results = $service->getProductsBySearch($searchString);
 
 ?>
+<div class="container">
 <h2>Product Admin</h2>
 <?php
 if($results){
@@ -16,4 +17,6 @@ if($results){
 } else {
     echo "No search results found.";
 }
+echo '</div>';
+include_once '../../footer.php';
 ?>

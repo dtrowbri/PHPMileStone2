@@ -50,5 +50,6 @@ require_once '../../_navbar.php';
         <input type="submit" value="Register" class="btn btn-primary">
     </form>
 </div>
+<?php include_once '../../footer.php'; ?>
 </body>
 </html>

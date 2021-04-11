@@ -22,3 +22,4 @@ include_once '../shared/AuthenticationCheck.php';
 		<input type="Submit" value="Add Product" class="btn btn-primary">
 	</form>
 </div>
+<?php include_once '../../footer.php'; ?>

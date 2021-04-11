@@ -19,5 +19,6 @@ require_once '../../_navbar.php';
 		<input type="submit" value="Login" class="btn btn-primary"/>
 	</form>
 </div>
+<?php include_once '../../footer.php'; ?>
 </body>
 </html>

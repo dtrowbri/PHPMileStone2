@@ -45,5 +45,6 @@ $role = $_POST["userRole"];
 		<input type="submit" value="Submit">
 	</form>
 </div>
+<?php include_once '../../footer.php'; ?>
 </body>
 </html>

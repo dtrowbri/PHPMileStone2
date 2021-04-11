@@ -63,4 +63,7 @@ echo '<form action="CouponHandler.php" method="post"><div class="row"><div class
 echo '<form action="../handlers/ProductSearchHandler.php"><input type="submit" value="Keep Shopping"></form>';
 echo '<form action="CreditCardSelector.php"><input type="submit" value="Proceed to Checkout"></form>';
 echo "</div>";
+echo "</div>";
+
+include_once '../../footer.php';
 ?>

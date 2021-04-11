@@ -37,3 +37,4 @@ $image = $_POST["productImage"];
     	<input type="submit" value="submit" class="btn btn-primary">
     </form>
 </div>
+<?php include_once '../../footer.php'; ?>

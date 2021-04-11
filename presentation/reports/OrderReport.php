@@ -33,3 +33,4 @@ if(!isset($enddate) || $enddate != null){
     	<input type="submit" value="Run Report">
     </form>
 </div>
+<?php include_once '../../footer.php'; ?>

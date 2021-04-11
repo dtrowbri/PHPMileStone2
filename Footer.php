@@ -1,0 +1,1 @@
+<footer style="position:fixed; bottom: 0; width: 100%; background-color: #212529; color: rgba(255, 255, 255, 0.55); text-align: center; font-size: 24px;">Ecommerce Grocers &#169;2021</footer>

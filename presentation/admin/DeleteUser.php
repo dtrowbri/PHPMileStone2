@@ -9,4 +9,5 @@ $username = $_POST["username"];
 $service = new UserService();
 $service->deleteUser($id, $username);
 
+include_once '../../footer.php';
 ?>

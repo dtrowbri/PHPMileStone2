@@ -1,0 +1,1 @@
+<h2 style="background-color: #212529; color: rgba(255, 255, 255, 0.55); text-align: center; font-size: 48px; margin-bottom: 0;">Ecommerce Grocers</h2>
