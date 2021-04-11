@@ -7,6 +7,7 @@ class Order
     private $users_id;
     private $address_id;
     private $credit_card_id;
+    private $couponId;
     
     public function __construct(?int $userid, ?int $addressid, ?int $credit_card_id){
         $this->users_id = $userid;
@@ -63,6 +64,17 @@ class Order
     {
         $this->credit_card_id = $credit_card_id;
     }
+    
+    public function getCouponId()
+    {
+        return $this->couponId;
+    }
+
+    public function setCouponId($couponId)
+    {
+        $this->couponId = $couponId;
+    }
+
 
 
     

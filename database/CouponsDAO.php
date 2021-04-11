@@ -86,6 +86,24 @@ class CouponsDAO {
             return 0;
         }
     }
+
+    public function getCouponId(?string $couponCode, $conn){       
+       $query = "SELECT ID FROM COUPONS WHERE COUPON_CODE = ?";
+       $stmt = $conn->prepare($query);
+       $stmt->bind_param('s', $couponCode);
+       $stmt->execute();
+       $result = $stmt->get_result();
+       print_r($result);
+       
+       if($result->num_rows == 1){
+           $result = $result->fetch_assoc();
+           print_r($result);
+           $id = $result["ID"];
+           return $id;
+       } else {
+           return null;
+       }
+    }
 }
 
 ?>

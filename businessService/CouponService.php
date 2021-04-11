@@ -42,29 +42,10 @@ class CouponService {
         return $result;
     }
     
-    public function checkCoupon_back(?string $couponCode){
+    public function getCouponId(?string $couponCode){
         $conn = $this->database->getConnection();
-        $service = new CouponsDAO();
-        $result = $service->getTimeBasedCoupon($couponCode, $conn);
-        $conn->close();
-        return $result;
-    }
-    
-    public function test($userid, $couponCode){
-        $conn = $this->database->getConnection();
-        $service = new CouponsDAO();
-        $result = $service->hasOneTimeCouponBeenUsed($userid, $couponCode, $conn);
-        if($result == 0){
-            $result = $service->getOneTimeCoupon($couponCode, $conn);
-        }
-        $conn->close();
-        return $result;
-    }
-    
-    public function test2($couponCode){
-        $conn = $this->database->getConnection();
-        $service = new CouponsDAO();
-        $result = $service->getUnlimitedCoupon($couponCode, $conn);
+        $CouponDAO = new CouponsDAO();
+        $result = $CouponDAO->getCouponId($couponCode, $conn);
         $conn->close();
         return $result;
     }

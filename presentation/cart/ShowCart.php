@@ -36,13 +36,19 @@ foreach($cart->getItems() as $id=>$Quantity){
     echo "<td>" . $Quantity * $product->getPrice() . "</td>";
     echo "</tr>";
 }
-
+$couponError = $cart->getCouponError();
 echo '<tr class="table-light">';
-echo '<td colspan="3" style="text-align: right;">Coupon Code: ' . $cart->getCouponCode() . '</td>';
+echo '<td colspan="3" style="text-align: right;">Coupon Code: ';
+if(!isset($couponError)){
+   echo $cart->getCouponCode();
+}
+echo '</td>';
 echo '<td>';
 
-$couponError = $cart->getCouponError();
+
 if(isset($couponError) && $couponError != null){
+    echo '$0.00';
+}elseif($cart->getDiscountPrice() == null){
     echo '$0.00';
 }else{
     echo '$' . $cart->getDiscountPrice();

@@ -8,7 +8,7 @@ class OrdersService {
         $this->database = new database();
     }
     
-    public function addOrder(?int $userid, $cartItems, ?int $creditcardid){
+    public function addOrder(?int $userid, $cartItems, ?int $creditcardid, ?int $couponId){
         $conn = $this->database->getConnection();
         
         $addressDAO = new AddressDAO();
@@ -21,6 +21,7 @@ class OrdersService {
         $conn->autocommit(FALSE);
         $conn->begin_transaction();
         $order = new Order($userid, $addressId, $creditcardid);
+        $order->setCouponId($couponId);
 
         $ordersDAO = new OrderDAO();
         $orderid = $ordersDAO->insertOrder($order, $conn);

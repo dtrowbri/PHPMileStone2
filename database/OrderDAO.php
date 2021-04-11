@@ -5,9 +5,9 @@ require_once '../../Autoloader.php';
 class OrderDAO {
     
     public function insertOrder(?Order $order, $conn){
-        $query = "INSERT INTO orders(ID, DATE, USERS_ID, ADDRESSES_ID, CREDIT_CARD_ID) VALUES (null,now(),?,?,?)";
+        $query = "INSERT INTO orders(ID, DATE, USERS_ID, ADDRESSES_ID, CREDIT_CARD_ID, COUPON_ID) VALUES (null,now(),?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('iii', $order->getUsers_id(), $order->getAddress_id(), $order->getCredit_card_id());
+        $stmt->bind_param('iiii', $order->getUsers_id(), $order->getAddress_id(), $order->getCredit_card_id(), $order->getCouponId());
         $stmt->execute();
         
         if($stmt->affected_rows == 1 ){
